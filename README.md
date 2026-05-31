@@ -26,22 +26,6 @@ cp -R template specs/my-new-spec
 
 Then edit `specs/my-new-spec/tunedtensor.json`. The optional cards can be deleted if you do not have a public dataset, model, or eval yet.
 
-## Specs
-
-### Email Safety Triage Qwen 2B
-
-- Spec: [tunedtensor.json](specs/email-safety-triage-qwen2b/tunedtensor.json)
-- Dataset notes: [dataset-card.md](specs/email-safety-triage-qwen2b/dataset-card.md)
-- Model notes: [model-card.md](specs/email-safety-triage-qwen2b/model-card.md)
-- Evaluation: [eval.md](specs/email-safety-triage-qwen2b/eval.md)
-
-This spec fine-tunes `Qwen/Qwen3.5-2B` for email triage, phishing/spam risk classification, and prompt-attack filtering. It returns strict JSON that can be routed or audited by downstream systems.
-
-Public artifacts:
-
-- Dataset: [weijianzhg/email-safety-triage-10k](https://huggingface.co/datasets/weijianzhg/email-safety-triage-10k)
-- Model: [weijianzhg/email-safety-triage-qwen3.5-2b](https://huggingface.co/weijianzhg/email-safety-triage-qwen3.5-2b)
-
 ## Use A Spec
 
 Copy a spec locally:
