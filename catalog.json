@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "specs": [
+    {
+      "id": "email-safety-triage-qwen2b",
+      "name": "Email Safety Triage Qwen 2B",
+      "summary": "Classifies email-like content for operational triage, phishing/spam risk, and prompt-attack filtering with strict JSON output.",
+      "path": "specs/email-safety-triage-qwen2b",
+      "status": "full_recipe",
+      "task": "email-security-classification",
+      "base_model": "Qwen/Qwen3.5-2B",
+      "output_type": "json",
+      "dataset": {
+        "name": "weijianzhg/email-safety-triage-10k",
+        "url": "https://huggingface.co/datasets/weijianzhg/email-safety-triage-10k",
+        "license": "composite"
+      },
+      "model": {
+        "name": "weijianzhg/email-safety-triage-qwen3.5-2b",
+        "url": "https://huggingface.co/weijianzhg/email-safety-triage-qwen3.5-2b",
+        "license": "other"
+      },
+      "metrics": {
+        "base_validation_average_score": 0.528,
+        "tuned_validation_average_score": 0.856,
+        "base_validation_pass_rate": 0.575,
+        "tuned_validation_pass_rate": 0.895,
+        "valid_json_rate": 1.0
+      },
+      "tags": [
+        "email",
+        "security",
+        "phishing",
+        "spam",
+        "prompt-injection",
+        "structured-output",
+        "qwen"
+      ]
+    }
+  ]
+}

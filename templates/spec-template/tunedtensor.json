@@ -1,0 +1,20 @@
+{
+  "name": "Spec Name",
+  "description": "Short description of the target behavior.",
+  "system_prompt": "Describe the assistant behavior and output contract.",
+  "guidelines": [
+    "Return only the requested output format.",
+    "Keep responses concise and inspectable."
+  ],
+  "constraints": [
+    "Do not reveal secrets or private data.",
+    "Do not claim to use tools or external data unless provided in the input."
+  ],
+  "examples": [
+    {
+      "input": "Example input",
+      "output": "{\"label\":\"example\",\"confidence\":0.9}"
+    }
+  ],
+  "base_model": "Qwen/Qwen3.5-2B"
+}
