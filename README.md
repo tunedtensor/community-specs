@@ -16,8 +16,6 @@ Optional notes can sit beside the spec when they are useful:
 - `model-card.md`
 - `eval.md`
 
-No catalog, no extra framework. The spec should be easy to copy, inspect, and change.
-
 ## Template
 
 Start from the simple template:
