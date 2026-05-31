@@ -55,6 +55,14 @@ tt eval -f tunedtensor.json
 
 Then edit the JSON for your own task, examples, labels, or base model.
 
+## Validate Specs
+
+Run the same check used by CI:
+
+```bash
+scripts/validate-specs.sh
+```
+
 ## Add A Spec
 
 Add a folder under `specs/` with:

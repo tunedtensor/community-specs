@@ -36,8 +36,7 @@ A good spec is:
 Run:
 
 ```bash
-python3 -m json.tool specs/my-new-spec/tunedtensor.json >/dev/null
-tt eval -f specs/my-new-spec/tunedtensor.json
+scripts/validate-specs.sh
 ```
 
 Check that links to datasets and models are public, if you include them.
