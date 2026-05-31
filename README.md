@@ -16,7 +16,17 @@ Optional notes can sit beside the spec when they are useful:
 - `model-card.md`
 - `eval.md`
 
-No catalog, no template system, no extra framework. The spec should be easy to copy, inspect, and change.
+No catalog, no extra framework. The spec should be easy to copy, inspect, and change.
+
+## Template
+
+Start from the simple template:
+
+```bash
+cp -R template specs/my-new-spec
+```
+
+Then edit `specs/my-new-spec/tunedtensor.json`. The optional cards can be deleted if you do not have a public dataset, model, or eval yet.
 
 ## Specs
 
