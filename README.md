@@ -68,7 +68,7 @@ eval.md
 
 Only `tunedtensor.json` is required. The notes are helpful when a public dataset, model, or evaluation exists.
 
-Do not commit model weights, private datasets, API keys, tokens, or `.env` files.
+Before opening a PR, read [CONTRIBUTING.md](CONTRIBUTING.md). Do not commit model weights, private datasets, API keys, tokens, or `.env` files.
 
 ## License
 
