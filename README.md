@@ -1,64 +1,64 @@
 # Tuned Tensor Community Specs
 
-Free, open-source behavior specs and runnable recipes for small specialist language models.
+Free, open-source Tuned Tensor spec files for small specialist language models.
 
-This repository is for people who want to build, share, and learn from compact LLMs that do one useful job well. Each example is intended to be practical: a behavior spec, example rows, dataset and model links, evaluation notes, and local serving instructions.
+This repository is intentionally simple. Each example is centered on one file:
 
-Small models are most interesting when the task is narrow, the output contract is clear, and progress is measurable. This library collects those recipes in one place.
-
-## Start Here
-
-The first complete recipe is:
-
-- [Email Safety Triage Qwen 2B](specs/email-safety-triage-qwen2b/README.md)
-
-It fine-tunes `Qwen/Qwen3.5-2B` for email triage, phishing/spam risk classification, and prompt-attack filtering. The model returns strict JSON that can be routed or audited by downstream systems.
-
-## What Is A Spec?
-
-A community spec is a small-model recipe with enough context to reproduce, evaluate, or adapt the model.
-
-A strong spec includes:
-
-- A narrow task and target user
-- A Tuned Tensor behavior spec
-- Clear input and output examples
-- A JSON Schema when the output is structured
-- Dataset provenance and licensing notes
-- Base model and tuned model links
-- Before/after evaluation results
-- Local serving instructions
-- Known limitations
-
-## Contribution Levels
-
-You do not need a finished model to contribute. Contributions can land at three levels:
-
-- **Spec only**: behavior spec, examples, and README.
-- **Spec + dataset**: public dataset link or generation script.
-- **Full recipe**: spec, dataset, trained model, evals, and runbook.
-
-The library should make it easy for a curious person to clone, run, inspect, and adapt a small model.
-
-## Catalog
-
-The machine-readable index lives in [catalog.json](catalog.json). It is intentionally simple so a website, CLI, or dashboard can render it later.
-
-## Validate Locally
-
-```bash
-python3 scripts/validate_catalog.py
-python3 scripts/validate_spec_examples.py
+```text
+tunedtensor.json
 ```
 
-## Repository Policy
+That JSON file is the behavior spec. It contains the task description, system prompt, guidelines, constraints, examples, and base model.
 
-Keep this repo lightweight:
+Optional notes can sit beside the spec when they are useful:
 
-- Do not commit model weights.
-- Do not commit private datasets, secrets, tokens, or `.env` files.
-- Link to public model and dataset artifacts.
-- Preserve upstream dataset attribution and license terms.
+- `dataset-card.md`
+- `model-card.md`
+- `eval.md`
+
+No catalog, no template system, no extra framework. The spec should be easy to copy, inspect, and change.
+
+## Specs
+
+### Email Safety Triage Qwen 2B
+
+- Spec: [tunedtensor.json](specs/email-safety-triage-qwen2b/tunedtensor.json)
+- Dataset notes: [dataset-card.md](specs/email-safety-triage-qwen2b/dataset-card.md)
+- Model notes: [model-card.md](specs/email-safety-triage-qwen2b/model-card.md)
+- Evaluation: [eval.md](specs/email-safety-triage-qwen2b/eval.md)
+
+This spec fine-tunes `Qwen/Qwen3.5-2B` for email triage, phishing/spam risk classification, and prompt-attack filtering. It returns strict JSON that can be routed or audited by downstream systems.
+
+Public artifacts:
+
+- Dataset: [weijianzhg/email-safety-triage-10k](https://huggingface.co/datasets/weijianzhg/email-safety-triage-10k)
+- Model: [weijianzhg/email-safety-triage-qwen3.5-2b](https://huggingface.co/weijianzhg/email-safety-triage-qwen3.5-2b)
+
+## Use A Spec
+
+Copy a spec locally:
+
+```bash
+cp specs/email-safety-triage-qwen2b/tunedtensor.json ./tunedtensor.json
+tt eval -f tunedtensor.json
+```
+
+Then edit the JSON for your own task, examples, labels, or base model.
+
+## Add A Spec
+
+Add a folder under `specs/` with:
+
+```text
+tunedtensor.json
+dataset-card.md
+model-card.md
+eval.md
+```
+
+Only `tunedtensor.json` is required. The notes are helpful when a public dataset, model, or evaluation exists.
+
+Do not commit model weights, private datasets, API keys, tokens, or `.env` files.
 
 ## License
 
