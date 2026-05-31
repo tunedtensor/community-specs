@@ -6,12 +6,6 @@ This repository is for people who want to build, share, and learn from compact L
 
 Small models are most interesting when the task is narrow, the output contract is clear, and progress is measurable. This library collects those recipes in one place.
 
-## New To Small Model Fine-Tuning?
-
-Start by reading one complete recipe before creating your own. A recipe shows the full path from intent to a working specialist model: define the behavior, collect or link a dataset, evaluate the base model, fine-tune, compare results, and serve the model locally.
-
-You can use these specs even if you are not ready to train anything yet. Clone a recipe, inspect the `tunedtensor.json` behavior spec, try the examples, and change the labels or output schema to match a task you care about.
-
 ## Start Here
 
 The first complete recipe is:
