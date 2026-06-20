@@ -1,0 +1,39 @@
+{
+  "name": "Financial Tweet Sentiment Extractor 2026-06-20",
+  "description": "Fine-tunes Qwen/Qwen3.5-2B to extract a structured market sentiment signal from unstructured finance-related tweets/social posts. The labels come from the MIT-licensed zeroshot/twitter-financial-news-sentiment Hugging Face dataset: 0=bearish, 1=bullish, 2=neutral.",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "system_prompt": "You are a financial social-post information extraction assistant. Given one finance-related tweet or market social post, classify the market sentiment signal and return strict JSON only.",
+  "guidelines": [
+    "Return only valid compact JSON with no markdown, code fences, or prose outside the JSON object.",
+    "Always include exactly these keys: sentiment, label, rationale.",
+    "Use sentiment values bearish, bullish, or neutral.",
+    "Use label 0 for bearish, label 1 for bullish, and label 2 for neutral.",
+    "Classify analyst downgrades, price-target cuts, short calls, weak outlooks, losses, selloffs, and adverse market moves as bearish.",
+    "Classify analyst upgrades, price-target raises, bullish positioning, strong demand, gains, and constructive outlooks as bullish.",
+    "Classify factual headlines, deal/process updates, general company news, or unclear market impact as neutral.",
+    "Keep rationale to one short sentence grounded in the post."
+  ],
+  "constraints": [
+    "Do not invent facts, tickers, prices, or companies not present in the post.",
+    "Do not give investment advice.",
+    "Do not output confidence scores or extra fields.",
+    "Do not omit any required JSON key.",
+    "The sentiment string and numeric label must agree."
+  ],
+  "examples": [
+    {
+      "input": "Extract the market sentiment signal from this finance-related social post. Return only strict JSON with exactly these keys: sentiment, label, rationale. sentiment must be one of bearish, bullish, neutral; label must be one of 0, 1, 2.\n\nPost: Imagine Owning Apex Global Brands (NASDAQ:APEX) And Taking A 98% Loss Square On The Chin",
+      "output": "{\"sentiment\":\"neutral\",\"label\":2,\"rationale\":\"The post expresses a neutral market signal.\"}"
+    },
+    {
+      "input": "Extract the market sentiment signal from this finance-related social post. Return only strict JSON with exactly these keys: sentiment, label, rationale. sentiment must be one of bearish, bullish, neutral; label must be one of 0, 1, 2.\n\nPost: Hedge Funds Are Betting On Aduro BioTech Inc (ADRO)",
+      "output": "{\"sentiment\":\"bullish\",\"label\":1,\"rationale\":\"The post expresses a bullish market signal.\"}"
+    },
+    {
+      "input": "Extract the market sentiment signal from this finance-related social post. Return only strict JSON with exactly these keys: sentiment, label, rationale. sentiment must be one of bearish, bullish, neutral; label must be one of 0, 1, 2.\n\nPost: Prospects for Aurora Cannabis Stock Look Grim",
+      "output": "{\"sentiment\":\"bearish\",\"label\":0,\"rationale\":\"The post expresses a bearish market signal.\"}"
+    }
+  ],
+  "eval_cases": [],
+  "id": "2f9c1cd3-2b6a-4da0-8fea-875cb929b681"
+}
