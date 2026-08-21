@@ -13,5 +13,5 @@ fi
 for spec in "${specs[@]}"; do
   echo "Validating ${spec}"
   python3 -m json.tool "${spec}" >/dev/null
-  tt eval -f "${spec}"
+  tt validate "${spec}"
 done

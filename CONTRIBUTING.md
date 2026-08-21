@@ -27,7 +27,7 @@ A good spec is:
 
 - Narrow: one clear behavior, not a general assistant.
 - Inspectable: examples make the input and output contract obvious.
-- Runnable: `tt eval -f tunedtensor.json` should pass.
+- Runnable: `tt validate tunedtensor.json` should pass.
 - Honest: limitations and eval gaps are stated plainly.
 - Reusable: another person can copy it and adapt it without a lot of setup.
 

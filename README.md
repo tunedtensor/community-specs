@@ -32,7 +32,7 @@ Copy a spec locally:
 
 ```bash
 cp specs/email-safety-triage-qwen2b/tunedtensor.json ./tunedtensor.json
-tt eval -f tunedtensor.json
+tt validate tunedtensor.json
 ```
 
 Then edit the JSON for your own task, examples, labels, or base model.
